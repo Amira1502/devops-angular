@@ -1,14 +1,12 @@
-node {
-  agent any 
-  stages {
-    stage('Install') {
-      steps { sh 'npm install' }
-    }
 
-
-    stage('Build') {
-      steps { sh 'npm run ng serve' }
+node {  
+    stage('Build') { 
+       sh 'npm install'
     }
-  
-}
+    stage('Test') { 
+        // 
+    }
+    stage('Deploy') { 
+       sh 'npm run ng serve'
+    }
 }

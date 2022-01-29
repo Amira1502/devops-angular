@@ -1,0 +1,23 @@
+version: '3'
+services:
+  # web:
+  # ports:
+  # - 8000:3006
+  web:
+    build: .
+    ports:
+      - "8000:3006"    
+    volumes:
+      - ./logs/:/root/.pm2/logs
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+networks:
+  default:
+    name: some_name
+    driver: bridge    

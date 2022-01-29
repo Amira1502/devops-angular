@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "name": "REACT APP",
+      "script": "npm start",
+      "args": "",
+      "cwd": "./",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z"
+    }
+  ]
+}

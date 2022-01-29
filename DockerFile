@@ -1,0 +1,21 @@
+#  from les langages/framework qu'ona 
+FROM node:12.21-buster
+WORKDIR /node_app
+
+#copier les dependences pour le porjet react 
+COPY package*.json /node_app/
+
+#install dependences
+RUN npm install
+RUN npm install pm2 -g
+
+#copier les fichers sources
+COPY . /node_app/
+EXPOSE 3000
+
+# la commande a excuter pour lancer le projet ( pour créer container)
+CMD  [ "pm2-runtime","start","docker.json" ]
+
+# Creation d'une image Docker: docker build -t image_name:version (exp:1.0) /path/to/dockerfile
+# Creation d'un Container: docker run -it --name container_name:container_version -p 4000:3000 (host:docker) image_name:version
+# Creation d'un Container: docker run -it --name container_name:container_version -v /path/local:/path/container -p 4000:3000 (host:docker) image_name:version
